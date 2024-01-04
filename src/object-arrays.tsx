@@ -16,11 +16,15 @@ import { BlockAttributes } from "widget-sdk";
 
 /**
  * React Component
- */
+ 
 interface CustomBlockAttributes extends Omit<BlockAttributes, string> {
 }
-export interface ObjectArraysProps extends CustomBlockAttributes {
-  elements: {name: string; location: string }[];
+*/
+export interface ObjectArraysProps extends Omit<BlockAttributes, string> {
+  elements: {
+    name: string; 
+    location: string;
+  }[];
 }
 
 
@@ -32,13 +36,15 @@ export const ObjectArrays = ({ elements}: ObjectArraysProps): ReactElement => {
     return <div>No elements to display</div>;
   }
 
-  return       <div>
-  {elements.map((element, index) => (
-    <div key={index.toString()}>
-      <p>Name: {element.name}</p>
-      <p>Location: {element.location}</p>
+  return (
+    <div>
+      {elements.map((element, index) => (
+        <div key={index.toString()}>
+          <p>Name: {element.name}</p>
+          <p>Location: {element.location}</p>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
+  )
 };
 

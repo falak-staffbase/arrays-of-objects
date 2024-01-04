@@ -17,8 +17,11 @@ import React from "react";
 import Form from "@rjsf/material-ui";
 
 const updateWidget = (data: Record<string, string>) => {
+  console.log(data);
+
   const el = document.querySelector("#preview > :first-child");
 
+  /* Iteration to change/adapt for arrays/objects **/
   for (const key in data) {
     el?.setAttribute(key, data[key]);
   }
